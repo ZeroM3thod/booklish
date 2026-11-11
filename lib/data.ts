@@ -62,3 +62,12 @@ export function liveBooks(now: number | null): LiveBook[] {
 }
 export const price = (b: Book) => (b.p === 0 ? "Free" : CUR + b.p);
 export const was = (b: LiveBook) => (b.dl ? b.reg : b.old);
+
+export const STORE = {
+  name: "Books for All",
+  city: "Dhaka, Bangladesh",
+  delivery: "Delivery across Bangladesh, usually 2–4 days",
+  pay: "Cash on delivery",
+  ret: "Return within 7 days if the book is not as described",
+  pack: "Wrapped in paper with a protective sleeve",
+};

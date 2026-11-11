@@ -77,10 +77,26 @@ export default function StoreProvider({ children }: { children: ReactNode }) {
   const go = useCallback((r: string) => {
     setMenuOpen(false);
     const t = targetOf(r);
-    if (!t || t === window.location.pathname) return;
+    if (!t) return;
+    if (t === window.location.pathname) {
+      if (/^(book|study)-|^(shop|study)$/.test(r)) {
+        if (window.location.hash === "#" + r) window.dispatchEvent(new HashChangeEvent("hashchange"));
+        else window.location.hash = r;
+      }
+      return;
+    }
     persist();
     router.push(t + (/^(book|study)-/.test(r) ? "#" + r : ""));
   }, [persist, router]);
+
+  const takeFilter = useCallback(() => {
+    const s = shared.current;
+    if (!s.apply) return null;
+    s.apply = 0; persist();
+    return { cat: s.cat, q: s.q };
+  }, [persist]);
+  const getWish = useCallback(() => shared.current.wish as Record<number, number>, []);
+  const setWish = useCallback((w: Record<number, number>) => { shared.current.wish = w; persist(); }, [persist]);
 
   const bump = () => {
     const el = cartBtn.current; if (!el) return;
@@ -88,7 +104,7 @@ export default function StoreProvider({ children }: { children: ReactNode }) {
   };
 
   const store = useMemo<Store>(() => ({
-    items, user, menuOpen, modal,
+    items, user, menuOpen, modal, ready, takeFilter, getWish, setWish,
     add: (i) => { setItems((a) => [...a, i]); bump(); },
     remove: (k) => { setItems((a) => a.filter((_, j) => j !== k)); bump(); },
     placeOrder: () => { setItems([]); bump(); },
@@ -96,7 +112,7 @@ export default function StoreProvider({ children }: { children: ReactNode }) {
     logout: () => setUser(null),
     say, go, setModal,
     search: (q) => { shared.current = { ...shared.current, cat: "all", q: q.trim(), apply: 1 }; go("shop"); },
-  }), [items, user, menuOpen, modal, say, go]);
+  }), [items, user, menuOpen, modal, ready, takeFilter, getWish, setWish, say, go]);
 
   const booksValue = useMemo(() => ({ now, books: liveBooks(now) }), [now]);
 

@@ -113,6 +113,42 @@ export default function Modal() {
             { n: "p", type: "number", min: 0, ph: "Your price (৳)", req: true }, { n: "ct", ph: "Your phone or email", req: true }]}
           done={(v) => { close(); say("Thanks! We got the details for “" + v.t.trim() + "”"); }} />;
         break;
+      case "req": {
+        const { t, sub, list } = modal;
+        body = (
+          <>
+            <h2>Request {list ? "this combo" : "this book"}</h2>
+            <p style={{ marginBottom: 6 }}><b>{t}</b> · {sub}</p>
+            {list && <ul className="il">{list.map((x) => <li key={x}>{x}</li>)}</ul>}
+            <p style={{ marginBottom: 8, fontSize: 14 }}>This book is donated, so it is free. Tell us who you are and how you would like to get it. Copies go to the first requests we receive.</p>
+            <form id="reqf" onSubmit={(e) => {
+              e.preventDefault();
+              const nm = String(new FormData(e.currentTarget).get("nm") || "");
+              close(); say("Thanks, " + first(nm) + "! We got your request for “" + t + "”");
+            }}>
+              <input className="fi" name="nm" placeholder="Your name" required autoComplete="name" autoFocus />
+              <input className="fi" name="ph" type="tel" placeholder="Phone number" required autoComplete="tel" />
+              <select className="fi" name="how" aria-label="How you want to get it"><option>I will pick it up</option><option>Please send it to me</option></select>
+              <textarea className="fi" name="ad" rows={2} placeholder="Address (only if you want it sent)" />
+              <textarea className="fi" name="why" rows={2} placeholder="Why do you need this book? (optional)" />
+              <button className="sub">Send request</button>
+            </form>
+          </>
+        );
+        break;
+      }
+      case "study":
+        body = (
+          <>
+            <h2>{modal.t}</h2>
+            <p style={{ marginBottom: 8 }}>{modal.meta}</p>
+            <p style={{ marginBottom: 10 }}><span className="tag o">FREE FOR EVERY STUDENT</span></p>
+            <p><b>{modal.cat}</b></p>
+            <ul className="abl">{modal.list.map((t) => <li key={t}>{t}</li>)}</ul>
+            <button className="sub" data-act="msg" data-n="our team" data-t="our team">Ask our team about this</button>
+          </>
+        );
+        break;
       case "msg": {
         const { n, t } = modal;
         body = <Form id="mf" title={"Message " + (t || n.split(" ")[0])} btn="Send"
