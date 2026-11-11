@@ -1,0 +1,30 @@
+/* Books for All - Free Books page */
+.freepg .tmpage .grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:24px 18px;margin-top:0}
+.freepg .tmpage .grid .pc{display:flex;flex-direction:column;min-width:0}
+.freepg .tmpage .grid .pc>.pcb{flex:1 1 auto;display:flex;flex-direction:column;justify-content:flex-start;align-items:stretch}
+.freepg .tmpage .grid .cover{font-size:16px;padding:12px;box-shadow:5px 0 0 #000;margin-right:0}
+.freepg .tmpage .grid .cb,.freepg .tmpage .grid .cb.of{top:8px;left:8px;padding:3px 8px;font-size:10px}
+.freepg .tmpage .grid .cb.of{left:auto;right:8px}
+.freepg .tmpage .grid .meta{font-size:13px;margin:10px 0 8px;line-height:1.5}
+.freepg .tmpage .grid .pr{font-size:14px;gap:8px}
+.freepg .tmpage .grid .add{padding:8px 14px;font-size:13px}
+@media(max-width:1199px){
+ .freepg .tmpage .grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:20px 12px}
+ .freepg .tmpage .grid .cover{font-size:clamp(10px,1.5vw,14px);padding:8px;box-shadow:4px 0 0 #000}
+ .freepg .tmpage .grid .cb,.freepg .tmpage .grid .cb.of{top:6px;left:6px;padding:2px 7px;font-size:9px}
+ .freepg .tmpage .grid .cb.of{left:auto;right:6px}
+ .freepg .tmpage .grid .meta{font-size:11px;margin:8px 0 6px}
+ .freepg .tmpage .grid .pr{font-size:12px;gap:6px}
+ .freepg .tmpage .grid .add{padding:7px 8px;font-size:11px}
+}
+@media(max-width:899px){
+ .freepg .tmpage .grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media(max-width:640px){
+ .freepg .tmpage .grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 10px}
+ .freepg .tmpage .grid .pr{flex-direction:column;align-items:stretch}
+ .freepg .tmpage .grid .add{width:100%}
+}
+@media(max-width:340px){
+ .freepg .tmpage .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}

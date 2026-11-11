@@ -1,0 +1,87 @@
+/* Books for All - Team page (also used by Free Books and E-Books) */
+.tmcl{display:flex;align-items:center;justify-content:center;padding:24px 8px 24px 0;max-width:520px;width:100%;min-width:0;margin:0 auto}
+.tmav{flex:0 1 auto;width:clamp(70px,10.5vw,120px);aspect-ratio:1;border-radius:50%;display:flex;align-items:center;justify-content:center;font:700 clamp(26px,5vw,50px) 'Outfit',sans-serif;box-shadow:6px 0 0 #000;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 -2.2 1.25'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");margin-left:-18px;transition:transform .3s cubic-bezier(.2,.8,.3,1)}
+.tmav:first-child{margin-left:0}
+.tmav:nth-child(1){transform:translateY(16px)}
+.tmav:nth-child(2){transform:translateY(-16px)}
+.tmav:nth-child(3){transform:translateY(12px)}
+.tmav:nth-child(4){transform:translateY(-12px)}
+@media(hover:hover){
+ .tmav:hover{transform:translateY(-22px) scale(1.05)}
+}
+.tmgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:36px 32px}
+.tmc{border:2px solid var(--ink);box-shadow:8px 0 0 #000;margin-right:8px;display:flex;flex-direction:column;background:var(--bg);animation:popin .5s cubic-bezier(.2,.8,.3,1) backwards;transition:transform .25s cubic-bezier(.2,.8,.3,1)}
+.tmc:hover{transform:translateY(-6px)}
+.tmp{position:relative;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 -2.2 1.25'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");border-bottom:2px solid var(--ink);overflow:hidden}
+.tmp b{font:700 clamp(64px,8vw,92px)/1 'Outfit',sans-serif;letter-spacing:2px;transition:transform .3s cubic-bezier(.2,.8,.3,1)}
+.tmc:hover .tmp b{transform:scale(1.08) rotate(-3deg)}
+.tmp .cb{top:14px;left:14px}
+.tmb{padding:20px;display:flex;flex-direction:column;flex:1}
+.tmn{font:700 26px/1.1 'Outfit',sans-serif}
+.tmr{color:var(--orange);font-weight:700;font-size:14px;margin:4px 0 12px}
+.tmbio{font-size:15px;line-height:1.6;margin-bottom:14px}
+.tmtags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.tmtags .tag{font-size:12px;padding:3px 10px}
+.tmpick{margin-top:auto;border-top:1.5px solid var(--ink);padding:12px 0;font-size:14px}
+.tmpick small{font-weight:700;color:var(--orange);letter-spacing:.4px;font-size:11px}
+.tmb .lnk{font-size:14px;padding:10px 18px;align-self:flex-start;margin-top:14px}
+@media(max-width:640px){
+ .tmgrid{gap:30px 0}
+ .tmc{box-shadow:6px 0 0 #000;margin-right:6px}
+}
+.tmpage .abhero{gap:28px;padding:4px 0 36px}
+.tmpage .abey,.tmpage .abeyb{font-size:clamp(12px,1.2vw,14px);margin-bottom:10px}
+.tmpage .abh1{font-size:clamp(32px,5.5vw,64px)}
+.tmpage .abp{font-size:clamp(14px,1.4vw,16px);margin:16px 0 22px}
+.tmpage .abrow .sub,.tmpage .abrow .lnk{font-size:14px;padding:10px 20px}
+.tmpage .tmav{width:clamp(52px,7vw,80px);font-size:clamp(18px,2.6vw,28px)}
+.tmpage .abstats{margin-bottom:48px}
+.tmpage .abstats>div{padding:18px 16px}
+.tmpage .abstats b{font-size:clamp(26px,3.4vw,40px)}
+.tmpage .abstats span{font-size:13px}
+.tmpage .absec{margin-bottom:56px}
+.tmpage .abh2{font-size:clamp(24px,3.2vw,38px);margin-bottom:22px}
+.tmpage .tmgrid{grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:24px 20px}
+.tmpage .tmc{box-shadow:6px 0 0 #000;margin-right:6px}
+.tmpage .tmp{aspect-ratio:16/9}
+.tmpage .tmp b{font-size:clamp(36px,4.4vw,52px)}
+.tmpage .tmp .cb{top:10px;left:10px;font-size:9px;padding:2px 8px}
+.tmpage .tmb{padding:14px}
+.tmpage .tmn{font-size:19px}
+.tmpage .tmr{font-size:12px;margin:3px 0 8px}
+.tmpage .tmbio{font-size:13px;line-height:1.5;margin-bottom:10px}
+.tmd{margin:0 0 12px;border-top:1.5px solid var(--ink)}
+.tmd>div{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px solid rgba(28,28,28,.2);font-size:12px;line-height:1.35}
+.tmd dt{font-weight:700;opacity:.6;flex:none}
+.tmd dd{margin:0;text-align:right;font-weight:600}
+.tmpage .tmtags{gap:5px;margin-bottom:12px}
+.tmpage .tmtags .tag{font-size:11px;padding:2px 8px}
+.tmpage .tmpick{padding:10px 0;font-size:12px}
+.tmpage .grid{grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:24px 20px}
+.tmpage .grid .cover{font-size:19px;padding:14px;box-shadow:6px 0 0 #000;margin-right:6px}
+.tmpage .grid .meta{font-size:13px;line-height:1.5;margin:12px 0 8px}
+.tmpage .grid .pr{font-size:14px}
+.tmpage .grid .add{font-size:13px;padding:8px 14px}
+.tmpage .abfeat{padding:clamp(20px,3vw,32px);box-shadow:6px 0 0 #000;margin-right:6px;gap:20px}
+.tmpage .abfeat h2{font-size:clamp(22px,3vw,34px);margin-bottom:10px}
+.tmpage .abfeat p{font-size:14px;line-height:1.6;margin-bottom:16px}
+.tmpage .abfeat .abw{font-size:14px;padding:10px 20px}
+@media(max-width:640px){
+ .tmpage .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 14px}
+ .tmpage .grid .add{width:100%}
+}
+.tmpage .tmpick small{font-size:10px}
+.tmpage .tmb .lnk{font-size:12px;padding:8px 14px;margin-top:10px}
+.tmpage .abvals{grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px}
+.tmpage .abv{padding:16px;box-shadow:6px 0 0 #000}
+.tmpage .abv i{font-size:13px;margin-bottom:10px}
+.tmpage .abv h4{font-size:18px;margin-bottom:6px}
+.tmpage .abv p{font-size:13px;line-height:1.5}
+.tmpage .abfeat{padding:clamp(20px,3vw,32px);gap:20px;box-shadow:6px 0 0 #000}
+.tmpage .abfeat h2{font-size:clamp(22px,2.8vw,32px)}
+.tmpage .abfeat p{font-size:14px;margin-bottom:16px}
+.tmpage .abl li{font-size:13px;padding:8px 0 8px 26px}
+.tmpage .abl li::before{top:11px;width:12px;height:12px}
+.tmpage .abw{font-size:14px;padding:10px 20px}
+.tmpage .abcta{padding-top:26px}
+.tmpage .abcta h2{font-size:clamp(22px,3vw,34px)}

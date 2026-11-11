@@ -1,0 +1,84 @@
+/* Books for All - Chrome shared by every inner page (everything except the home page) */
+#view{position:fixed;inset:0;z-index:50;background:var(--bg);overflow:auto;font-family:'Manrope',Arial,sans-serif;color:var(--ink)}
+#view[hidden]{display:none}
+.vtop{display:flex;align-items:center;gap:20px;padding:calc(20px + env(safe-area-inset-top,0px)) 5vw 20px;border-bottom:2px solid var(--ink);position:sticky;top:0;background:var(--bg);z-index:2}
+.vback{border:2px solid var(--ink);border-radius:30px;background:none;padding:10px 20px;font:600 16px 'Manrope',Arial,sans-serif;color:var(--ink);cursor:pointer}
+.vback:hover{background:var(--ink);color:#fff}
+.vtitle{font-family:'Outfit',sans-serif;font-weight:700;font-size:clamp(28px,5vw,56px)}
+.vbody{padding:32px 5vw calc(80px + env(safe-area-inset-bottom,0px));max-width:1200px;margin:auto}
+@media(max-width:640px){
+ .vbody{padding-top:22px}
+ .vback{padding:8px 14px;font-size:14px}
+}
+@media(max-width:899px){
+ .vbody.bkpage{padding-bottom:120px}
+}
+#view,.vtop{transition:background-color .3s}
+html.dk .vback:hover{color:var(--bg)}
+.bnav{display:none;position:sticky;top:0;z-index:3;background:var(--bg);border-bottom:2px solid var(--ink);padding-top:env(safe-area-inset-top,0px)}
+#view.isbook .bnav{display:block}
+#view.isbook .vtop{display:none}
+.bn-in{max-width:1200px;margin:0 auto;padding:0 5vw;height:60px;display:flex;align-items:center}
+.bn-logo{flex:none;border:0;background:none;padding:0;margin-right:16px;cursor:pointer;display:flex;align-items:center;color:var(--ink)}
+.bn-logo svg{width:40px;height:36px}
+.bn-links{display:none}
+.bn-links button,.bn-panel button{border:0;background:none;color:var(--ink);cursor:pointer;font:500 16px 'Manrope',Arial,sans-serif}
+.bn-links button{height:60px;padding:0 22px;border-left:2px solid var(--ink)}
+.bn-links button:last-child{border-right:2px solid var(--ink)}
+.bn-links button:hover{opacity:.6}
+.bn-sp{flex:1}
+.bn-i{position:relative;flex:none;width:48px;height:60px;border:0;border-left:2px solid var(--ink);background:none;display:flex;align-items:center;justify-content:center;color:var(--ink);cursor:pointer}
+.bn-i:hover{color:var(--orange)}
+.bn-n{position:absolute;top:10px;right:5px;min-width:17px;height:17px;padding:0 4px;border-radius:9px;background:var(--orange);color:#fff;font:700 11px 'Manrope',Arial,sans-serif;display:flex;align-items:center;justify-content:center}
+.bn-n[hidden]{display:none}
+.bn-panel{display:none;flex-direction:column;border-top:2px solid var(--ink)}
+.bnav.open .bn-panel{display:flex}
+.bn-panel button{text-align:left;padding:15px 5vw;border-top:1.5px solid var(--ink);font-weight:600;font-size:18px}
+.bn-panel button:first-child{border-top:0}
+@media(min-width:900px){
+ .bn-in{height:64px}
+ .bn-links{display:flex}
+ .bn-links button,.bn-i{height:64px}
+ .bn-burger{display:none}
+ .bnav .bn-panel{display:none!important}
+}
+@media(max-width:640px){
+ .bn-in{height:54px}
+ .bn-i{height:54px;width:44px}
+ .bn-logo{margin-right:10px}
+ .bn-logo svg{width:34px;height:30px}
+ .bn-n{top:7px;right:3px}
+}
+@media(max-width:400px){
+ .bn-i{width:40px}
+}
+#view.isbook .vbody.bkpage{max-width:1080px;padding-top:20px}
+.vback,.bn-i,.bn-logo,.bn-panel button,.bn-links button{transition:transform .16s cubic-bezier(.2,.8,.3,1),background-color .2s,color .2s,border-color .2s,box-shadow .2s,opacity .2s}
+@media(hover:hover){
+ .vback:hover{transform:translateY(-2px)}
+}
+.vback:active{transform:scale(.94);box-shadow:none}
+.bn-i:active,.bn-logo:active,.bn-panel button:active,.bn-links button:active{transform:scale(.96)}
+.bn-n.bump{animation:bump .45s ease}
+#view:not([hidden]){animation:fadein .25s ease}
+.bnav.open .bn-panel{animation:popin .22s ease}
+.bn-links button[aria-current]{background:var(--ink);color:var(--bg)}
+.bn-panel button[aria-current]{color:var(--orange)}
+@media(min-width:1200px){
+ #view .bn-in{max-width:none;margin:0 3.7vw;padding:0;height:95px}
+ #view .bn-logo{margin:0 38px 0 0}
+ #view .bn-logo svg{width:80px;height:70px}
+ #view .bn-links button{height:95px;padding:0 clamp(40px,4.2vw,80px);font-size:22px;font-weight:500}
+ #view .bn-i{height:95px;width:86px}
+ #view .nbtn{width:195px;height:57px;border-radius:29px;font-size:22px;padding:0;margin:0 0 0 40px;max-width:none}
+}
+#view .bnav,#view .vtop{display:none!important}
+.vnavd{display:none}
+#view .vnavd,#view .vnavm{position:sticky;top:0;z-index:5;background:var(--bg)}
+@media(min-width:1200px){
+ #view .vnavd{display:block;position:sticky;overflow:hidden;width:100%}
+}
+#vnav{position:absolute;top:0;left:0;width:1906px;height:133px;transform-origin:0 0;background:var(--bg);font-family:'Manrope','Helvetica Neue',Arial,sans-serif;color:var(--ink);overflow:hidden}
+@media(max-width:1199px){
+ #view .vnavm{display:block}
+}
